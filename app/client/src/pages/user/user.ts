@@ -15,7 +15,7 @@ export class UserPage {
   }
 
   getUsers() {
-    this.restProvider.getUsers()
+    this.restProvider.getLocalUsers()
     .then(data => {
       this.users = data;
       console.log(this.users);

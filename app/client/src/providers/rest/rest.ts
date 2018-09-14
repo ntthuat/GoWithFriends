@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
 /*
   Generated class for the RestProvider provider.
@@ -18,7 +18,7 @@ export class RestProvider {
 
   getUsers() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/users').subscribe(data => {
+      this.http.get(this.apiUrl + '/users').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -28,12 +28,22 @@ export class RestProvider {
 
   addUser(data) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
+      this.http.post(this.apiUrl + '/users', JSON.stringify(data))
         .subscribe(res => {
           resolve(res);
         }, (err) => {
           reject(err);
         });
+    });
+  }
+
+  getLocalUsers() {
+    return new Promise(resolve => {
+      this.http.get('assets/data/users.js').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
     });
   }
 
