@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { StatisticsPage } from '../pages/statistics/statistics';
-import { UserPage } from '../pages/user/user';
+import { FriendPage } from '../pages/friend/friend';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPage,
     HomePage,
     StatisticsPage,
-    UserPage,
+    FriendPage,
     TabsPage
   ],
   imports: [
@@ -37,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPage,
     HomePage,
     StatisticsPage,
-    UserPage,
+    FriendPage,
     TabsPage
   ],
   providers: [

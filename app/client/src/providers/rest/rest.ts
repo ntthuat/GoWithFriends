@@ -39,7 +39,7 @@ export class RestProvider {
 
   getLocalUsers() {
     return new Promise(resolve => {
-      this.http.get('assets/data/users.js').subscribe(data => {
+      this.http.get('assets/data/friends.js').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

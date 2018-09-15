@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
-import { UserPage } from '../user/user';
+import { FriendPage } from '../friend/friend';
 import { HomePage } from '../home/home';
 import { StatisticsPage } from '../statistics/statistics';
 
@@ -15,7 +15,7 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = ContactPage;
   tab4Root = StatisticsPage;
-  tab5Root = UserPage;
+  tab5Root = FriendPage;
 
   constructor() {
 
