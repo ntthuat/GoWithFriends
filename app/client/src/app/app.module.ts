@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { FriendPage } from '../pages/friend/friend';
+import { FriendDetailPage } from '../pages/friend/friendDetail/friendDetail';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     StatisticsPage,
     FriendPage,
+    FriendDetailPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     StatisticsPage,
     FriendPage,
+    FriendDetailPage,
     TabsPage
   ],
   providers: [
