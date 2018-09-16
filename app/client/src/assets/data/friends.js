@@ -252,7 +252,8 @@
   {
     "id": 15,
     "name": "Thuật",
-    "phone": "0124 7679 629"
+    "phone": "0124 7679 629",
+    "email": "nguyenthienthuat92@gmail.com"
   },
   {
     "id": 16,

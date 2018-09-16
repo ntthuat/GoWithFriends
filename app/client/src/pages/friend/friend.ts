@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, ModalController} from 'ionic-angular';
 import {RestProvider} from '../../providers/rest/rest';
 import {FriendDetailPage} from "./friendDetail/friendDetail";
+import {FriendModel} from "../../providers/model/FriendModel";
 
 @Component({
   selector: 'page-friend',
@@ -9,23 +10,33 @@ import {FriendDetailPage} from "./friendDetail/friendDetail";
 })
 export class FriendPage {
 
-  users: any;
+  friendList: any;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider) {
-    this.getUsers();
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public modalCtrl: ModalController, public friendModel: FriendModel) {
+    this.getFriendList();
   }
 
-  getUsers() {
+  getFriendList() {
     this.restProvider.getLocalUsers()
       .then(data => {
-        this.users = data;
-        console.log(this.users);
+        this.friendList = data;
+        console.log(this.friendList);
       });
   }
 
-  navigateFriendDetailPage(user) {
-    let data = user;
-    this.navCtrl.push(FriendDetailPage, user);
+  navigateFriendDetailPage(friendModel) {
+    this.friendModel = friendModel;
+    const myModal = this.modalCtrl.create(FriendDetailPage, {data: this.friendModel});
+    myModal.onDidDismiss(data => {
+    });
+    myModal.present();
   }
+
+  /*
+   * Below is old code that using NavController push
+   */
+  /*navigateFriendDetailPage(friendModel) {
+    this.navCtrl.push(FriendDetailPage);
+  }*/
 
 }

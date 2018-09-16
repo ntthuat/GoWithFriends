@@ -1,15 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Friend Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="getUser();">Alert</button>
   <ion-list inset>
-    <ion-item *ngFor="let user of users">
-      <h2>{{name}}</h2>
-      <h2>{{user.name}}</h2>
+    <ion-item>
+      <h2>{{friendModel.name}}</h2>
+      <h2>{{friendModel.phone}}</h2>
+      <h2>{{friendModel.email}}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

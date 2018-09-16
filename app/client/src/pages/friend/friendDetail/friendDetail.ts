@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {RestProvider} from '../../../providers/rest/rest';
+import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
+import {FriendModel} from "../../../providers/model/FriendModel";
 
 @Component({
   selector: 'page-friendDetail',
@@ -8,24 +8,24 @@ import {RestProvider} from '../../../providers/rest/rest';
 })
 export class FriendDetailPage {
 
-  users: any;
-  name: string;
+  friendModel: FriendModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
-    this.getUsers();
-    this.getUser();
+  constructor(private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController, private viewCtrl: ViewController) {
+    this.friendModel = this.navParams.get('data');
   }
 
-  getUsers() {
-    this.restProvider.getLocalUsers()
-      .then(data => {
-        this.users = data;
-        console.log(this.users);
-      });
+  closeModal() {
+    this.viewCtrl.dismiss();
   }
 
-  getUser() {
-    this.name = this.navParams.get('name');
-  }
+  /*
+   * Below is old solution that using NavParams get
+   */
+  /*getUser() {
+    this.friendModel.name = this.navParams.get("name");
+    this.friendModel.phone = this.navParams.get("phone");
+    this.friendModel.email = this.navParams.get("email");
+    this.user = this.friendModel;
+  }*/
 
 }
