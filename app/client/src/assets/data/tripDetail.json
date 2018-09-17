@@ -3,7 +3,8 @@
     "id": 1,
     "name": "Quy Nhơn - Biển Tình Vẫy Gọi",
     "capacity": 26,
-    "fund": 59586000,
+    "receivedMoney": 59586000,
+    "spentMoney": -34176936,
     "currency": "VND",
     "location": "Quy Nhơn",
     "startDay": "21/09/2018",
@@ -12,134 +13,159 @@
       {
         "friendId": 1,
         "name": "LLL",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 2,
         "name": "Nhung",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 3,
         "name": "Oanh",
-        "fund": 2000000
+        "receivedMoney": 2000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 4,
         "name": "Thủy",
-        "fund": 2000000
+        "receivedMoney": 2000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 5,
         "name": "Thiết",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 6,
         "name": "Bích Ngọc",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 7,
         "name": "Đam",
-        "fund": 1500000
+        "receivedMoney": 1500000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 8,
         "name": "Trang",
-        "fund": 1500000
+        "receivedMoney": 1500000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 9,
         "name": "Đạt",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 10,
         "name": "Luyến",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 11,
         "name": "Sơn",
-        "fund": 2086000
+        "receivedMoney": 2086000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 12,
         "name": "Tuyền",
-        "fund": 0
+        "receivedMoney": 0,
+        "spentMoney": -985197
       },
       {
         "friendId": 13,
         "name": "Dương",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 14,
         "name": "Hạnh",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 15,
         "name": "Thuật",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 16,
         "name": "Phương",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 17,
         "name": "Khánh",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 18,
         "name": "Ngân",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 19,
         "name": "Thái",
-        "fund": 2000000
+        "receivedMoney": 2000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 20,
         "name": "Thương",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 21,
         "name": "Thúy",
-        "fund": 0
+        "receivedMoney": 0,
+        "spentMoney": -790080
       },
       {
         "friendId": 22,
         "name": "Duy",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 23,
         "name": "Hảo",
-        "fund": 0
+        "receivedMoney": 0,
+        "spentMoney": -1230277
       },
       {
         "friendId": 24,
         "name": "Nguyên",
-        "fund": 2000000
+        "receivedMoney": 2000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 25,
         "name": "Trường",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       },
       {
         "friendId": 26,
         "name": "Kim Ngọc",
-        "fund": 3000000
+        "receivedMoney": 3000000,
+        "spentMoney": -1355277
       }
     ]
   }
 ]
-
