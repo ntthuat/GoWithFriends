@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { FriendRestService } from '../../providers/rest/FriendRestService';
-import { FriendPage} from "../friend/friend";
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -9,18 +8,19 @@ import { FriendPage} from "../friend/friend";
 })
 export class HomePage {
 
-  users: any;
+  inputText: string;
+  key: string = 'username';
 
-  constructor(public navCtrl: NavController, public restProvider: FriendRestService) {
-    this.getUsers();
+  constructor(public navCtrl: NavController, private storage: Storage) {
   }
 
-  getUsers() {
-    this.restProvider.getUsers()
-    .then(data => {
-      this.users = data;
-      console.log(this.users);
+  saveData() {
+    this.storage.set(this.key, this.inputText);
+  }
+
+  loadData() {
+    this.storage.get(this.key).then((val) => {
+      console.log('Your username is ', val);
     });
   }
-
 }

@@ -9,12 +9,14 @@ import {FriendPage} from '../pages/friend/friend';
 import {FriendDetailPage} from '../pages/friend/friendDetail/friendDetail';
 import {HomePage} from '../pages/home/home';
 import {TripPage} from "../pages/trip/trip";
+import {TripDetailPage} from "../pages/trip/tripDetail/tripDetail";
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {FriendModel} from "../providers/model/FriendModel";
 import {HttpClientModule} from '@angular/common/http';
+import {IonicStorageModule} from '@ionic/storage';
 
 import {FriendRestService} from '../providers/rest/FriendRestService';
 import {TripRestService} from "../providers/rest/TripRestService";
@@ -28,12 +30,14 @@ import {TripRestService} from "../providers/rest/TripRestService";
     FriendPage,
     FriendDetailPage,
     TripPage,
+    TripDetailPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +48,7 @@ import {TripRestService} from "../providers/rest/TripRestService";
     FriendPage,
     FriendDetailPage,
     TripPage,
+    TripDetailPage,
     TabsPage
   ],
   providers: [

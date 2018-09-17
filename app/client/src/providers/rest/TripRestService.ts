@@ -19,4 +19,14 @@ export class TripRestService {
       });
     });
   }
+
+  getLocalTripDetail() {
+    return new Promise(resolve => {
+      this.http.get('assets/data/tripDetail.json').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-list inset>
-    <ion-item *ngFor="let trip of tripList">
+    <ion-item *ngFor="let trip of tripList" (click)="navigateTripDetailPage(trip);">
       <h2><b>Trip Name</b>: {{trip.name}}</h2>
       <h2><b>Capacity</b>: {{trip.capacity}}</h2>
       <h2><b>Fund</b>: {{trip.fund|currency}} {{trip.currency}}</h2>
