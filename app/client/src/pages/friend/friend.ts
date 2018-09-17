@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
-import {RestProvider} from '../../providers/rest/FriendRest';
+import {FriendRestService} from '../../providers/rest/FriendRestService';
 import {FriendDetailPage} from "./friendDetail/friendDetail";
 import {FriendModel} from "../../providers/model/FriendModel";
 
@@ -12,12 +12,12 @@ export class FriendPage {
 
   friendList: any;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider, public modalCtrl: ModalController, public friendModel: FriendModel) {
+  constructor(public navCtrl: NavController, public friendService: FriendRestService, public modalCtrl: ModalController, public friendModel: FriendModel) {
     this.getFriendList();
   }
 
   getFriendList() {
-    this.restProvider.getLocalUsers()
+    this.friendService.getLocalUsers()
       .then(data => {
         this.friendList = data;
         console.log(this.friendList);

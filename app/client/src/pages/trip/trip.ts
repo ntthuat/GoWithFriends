@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
-import {RestProvider} from '../../providers/rest/FriendRest';
+import {TripRestService} from "../../providers/rest/TripRestService";
 
 @Component({
   selector: 'page-trip',
@@ -8,9 +8,17 @@ import {RestProvider} from '../../providers/rest/FriendRest';
 })
 export class TripPage {
 
-  friendList: any;
+  tripList: any;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public tripService: TripRestService, public modalCtrl: ModalController) {
+    this.getLocalList();
+  }
+
+  getLocalList() {
+    this.tripService.getLocalTrips()
+      .then(data => {
+        this.tripList = data;
+      });
   }
 
 }

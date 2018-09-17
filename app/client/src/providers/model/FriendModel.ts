@@ -9,6 +9,6 @@ export class FriendModel {
   email: string;
 
   constructor(public http: HttpClient) {
-    console.log('Hello RestProvider Provider');
+    console.log('Hello FriendRestService Provider');
   }
 }

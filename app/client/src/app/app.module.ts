@@ -13,9 +13,11 @@ import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {RestProvider} from '../providers/rest/FriendRest';
 import {FriendModel} from "../providers/model/FriendModel";
 import {HttpClientModule} from '@angular/common/http';
+
+import {FriendRestService} from '../providers/rest/FriendRestService';
+import {TripRestService} from "../providers/rest/TripRestService";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import {HttpClientModule} from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider,
+    FriendRestService,
+    TripRestService,
     FriendModel
   ]
 })

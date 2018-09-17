@@ -5,10 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-<!--  <ion-list inset>
-    <ion-item *ngFor="let friendModel of friendList" (click)="navigateFriendDetailPage(friendModel);">
-      <h2>{{friendModel.name}}</h2>
-      <h2>{{friendModel.phone}}</h2>
+  <ion-list inset>
+    <ion-item *ngFor="let trip of tripList">
+      <h2><b>Trip Name</b>: {{trip.name}}</h2>
+      <h2><b>Capacity</b>: {{trip.capacity}}</h2>
+      <h2><b>Fund</b>: {{trip.fund|currency}} {{trip.currency}}</h2>
+      <h2><b>Location</b>: {{trip.location}}</h2>
+      <h2><b>Start Day</b>: {{trip.startDay}}</h2>
+      <h2><b>End Day</b>: {{trip.endDay}}</h2>
     </ion-item>
-  </ion-list>-->
+  </ion-list>
 </ion-content>
