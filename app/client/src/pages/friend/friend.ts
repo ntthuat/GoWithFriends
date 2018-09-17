@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
-import {RestProvider} from '../../providers/rest/rest';
+import {RestProvider} from '../../providers/rest/FriendRest';
 import {FriendDetailPage} from "./friendDetail/friendDetail";
 import {FriendModel} from "../../providers/model/FriendModel";
 
