@@ -29,6 +29,7 @@ export class PaymentPage {
     this.presentToast();
     this.inputMoney = null; //clear form
     this.inputPayer = null; //clear form
+    /*console.log("after:" + this.payments[0]["isChecked"]);*/
     this.closeModal();
   }
 

@@ -12,10 +12,10 @@ import {TripPage} from "../trip/trip";
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = StatisticsPage;
-  tab4Root = FriendPage;
-  tab5Root = TripPage;
+  tab2Root = TripPage;
+  tab3Root = FriendPage;
+  tab4Root = StatisticsPage;
+  tab5Root = AboutPage;
 
   constructor() {
 
