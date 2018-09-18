@@ -6,4 +6,41 @@
 
 <ion-content padding>
   <h2>Welcome to GoWithFriends!</h2>
+  <!--<button ion-button block color="secondary" (click)="listarUsuario()">Listar Usuario</button>
+
+  <form [formGroup]="todo" (ngSubmit)="crearUsuario()" novalidate>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" formControlName="Nombre"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="todo.get('Nombre').errors && todo.get('Nombre').dirty">
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input type="text" formControlName="Apellido"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="todo.get('Apellido').errors && todo.get('Apellido').dirty">
+    </ion-item>
+    <ion-item>
+      <ion-label>Indentificación</ion-label>
+      <ion-input type="text" formControlName="Identificacion"></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!todo.valid">Crear Usuario</button>
+  </form>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of listaPersonas">
+      <ion-item>
+        <h2>{{item.Nombre}} - {{item.Apellido}}</h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+          <ion-icon name="delete"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>-->
+  <button ion-button block color="secondary" (click)="createUser()">Create User</button>
+  <button ion-button block color="secondary" (click)="getUsers()">Load User</button>
 </ion-content>

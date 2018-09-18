@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
+import {NavParams, ViewController} from 'ionic-angular';
 import {FriendModel} from "../../../providers/model/FriendModel";
 
 @Component({
@@ -10,7 +10,7 @@ export class FriendDetailPage {
 
   friendModel: FriendModel;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController, private viewCtrl: ViewController) {
+  constructor(private navParams: NavParams, private viewCtrl: ViewController) {
     this.friendModel = this.navParams.get('data');
   }
 

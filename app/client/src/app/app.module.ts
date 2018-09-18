@@ -2,7 +2,6 @@ import {NgModule, ErrorHandler} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
-
 import {AboutPage} from '../pages/about/about';
 import {StatisticsPage} from '../pages/statistics/statistics';
 import {FriendPage} from '../pages/friend/friend';
@@ -22,6 +21,8 @@ import {FriendRestService} from '../providers/rest/FriendRestService';
 import {TripRestService} from "../providers/rest/TripRestService";
 
 import {PaymentPage} from "../pages/trip/tripDetail/payment/payment";
+import {DatabaseProvider} from "../providers/database/DatabaseProvider";
+import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
@@ -58,10 +59,12 @@ import {PaymentPage} from "../pages/trip/tripDetail/payment/payment";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     FriendRestService,
     TripRestService,
-    FriendModel
+    FriendModel,
+    DatabaseProvider,
+    SQLite,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {
