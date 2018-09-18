@@ -12,6 +12,7 @@ export class PaymentPage {
 
   inputMoney: number;
   inputPayer: string;
+  inputActivity: string;
   key: string = 'data';
   payments: any;
 
@@ -26,9 +27,11 @@ export class PaymentPage {
 
   payMoney() {
     this.storage.set(this.key, this.inputMoney);
+    //TODO
     this.presentToast();
     this.inputMoney = null; //clear form
     this.inputPayer = null; //clear form
+    this.inputActivity = null; //clear form
     /*console.log("after:" + this.payments[0]["isChecked"]);*/
     this.closeModal();
   }

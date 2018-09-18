@@ -43,4 +43,18 @@
   </ion-list>-->
   <button ion-button block color="secondary" (click)="createUser()">Create User</button>
   <button ion-button block color="secondary" (click)="getUsers()">Load User</button>
+  Items:
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of userList">
+      <ion-item>
+        <h2>{{item.name}} - {{item.phone}}</h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+          <ion-icon name="delete"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

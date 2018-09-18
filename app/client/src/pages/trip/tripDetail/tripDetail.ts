@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
 import {TripRestService} from "../../../providers/rest/TripRestService";
 import {PaymentPage} from "./payment/payment";
+import {PaymentListPage} from "./paymentList/paymentList";
 
 @Component({
   selector: 'page-tripDetail',
@@ -33,6 +34,13 @@ export class TripDetailPage {
 
   navigatePayment() {
     const myModal = this.modalCtrl.create(PaymentPage, {data: this.trip});
+    myModal.onDidDismiss(data => {
+    });
+    myModal.present();
+  }
+
+  navigatePaymentList() {
+    const myModal = this.modalCtrl.create(PaymentListPage, {data: this.trip});
     myModal.onDidDismiss(data => {
     });
     myModal.present();

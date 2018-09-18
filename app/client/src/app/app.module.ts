@@ -9,6 +9,7 @@ import {FriendDetailPage} from '../pages/friend/friendDetail/friendDetail';
 import {HomePage} from '../pages/home/home';
 import {TripPage} from "../pages/trip/trip";
 import {TripDetailPage} from "../pages/trip/tripDetail/tripDetail";
+import {PaymentListPage} from "../pages/trip/tripDetail/paymentList/paymentList";
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -35,7 +36,8 @@ import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
     TripPage,
     TripDetailPage,
     TabsPage,
-    PaymentPage
+    PaymentPage,
+    PaymentListPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
     TripPage,
     TripDetailPage,
     TabsPage,
-    PaymentPage
+    PaymentPage,
+    PaymentListPage
   ],
   providers: [
     StatusBar,

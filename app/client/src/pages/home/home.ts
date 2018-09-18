@@ -29,6 +29,7 @@ export class HomePage {
   getUsers() {
     this.database.getUsers().then((data: any) => {
       console.log(data);
+      alert(data);
       this.userList = data;
     }, (error) => {
       console.log(error);
