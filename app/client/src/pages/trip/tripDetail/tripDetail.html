@@ -10,11 +10,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-input [(ngModel)]="inputMoney" placeholder="Type money"></ion-input>
-  </ion-item>
-  <button ion-button (click)="payMoney()">Pay</button>
-  <button ion-button (click)="loadData()">Load Data</button>
+  <button ion-button (click)="navigatePayment()">New Payment</button>
   <ion-list inset>
     <ion-item *ngFor="let t of trip">
       <h2><b>Trip Name</b>: {{t.name}}</h2>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Payment</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input [(ngModel)]="inputMoney" placeholder="Type money"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="inputPayer" placeholder="Type payer"></ion-input>
+  </ion-item>
+  <h2>Payers: </h2>
+  <ion-list inset>
+    <ion-item *ngFor="let p of payments">
+      <input type="checkbox" [value]="p.isChecked" [checked]="p.isChecked"
+             (change)="$event.target.checked ? p.isChecked = true : p.isChecked = false">
+      {{p.name}}
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="payMoney()">Pay</button>
+
+</ion-content>

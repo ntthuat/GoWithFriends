@@ -29,4 +29,14 @@ export class TripRestService {
       });
     });
   }
+
+  getLocalPayment() {
+    return new Promise(resolve => {
+      this.http.get('assets/data/payment.json').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

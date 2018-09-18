@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
 import {TripRestService} from "../../../providers/rest/TripRestService";
-import {Storage} from '@ionic/storage';
+import {PaymentPage} from "./payment/payment";
 
 @Component({
   selector: 'page-tripDetail',
@@ -10,11 +10,9 @@ import {Storage} from '@ionic/storage';
 export class TripDetailPage {
 
   trip: any;
-  inputMoney: number;
-  key: string = 'data';
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController,
-              private viewCtrl: ViewController, public tripService: TripRestService, private storage: Storage) {
+              private viewCtrl: ViewController, public tripService: TripRestService) {
     this.getTripDetail();
   }
 
@@ -33,9 +31,11 @@ export class TripDetailPage {
       });
   }
 
-  payMoney() {
-    this.storage.set(this.key, this.inputMoney);
-    alert(this.storage.get(this.key));
+  navigatePayment() {
+    const myModal = this.modalCtrl.create(PaymentPage, {data: this.trip});
+    myModal.onDidDismiss(data => {
+    });
+    myModal.present();
   }
 
 }

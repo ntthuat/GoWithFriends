@@ -21,6 +21,8 @@ import {IonicStorageModule} from '@ionic/storage';
 import {FriendRestService} from '../providers/rest/FriendRestService';
 import {TripRestService} from "../providers/rest/TripRestService";
 
+import {PaymentPage} from "../pages/trip/tripDetail/payment/payment";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +33,8 @@ import {TripRestService} from "../providers/rest/TripRestService";
     FriendDetailPage,
     TripPage,
     TripDetailPage,
-    TabsPage
+    TabsPage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import {TripRestService} from "../providers/rest/TripRestService";
     FriendDetailPage,
     TripPage,
     TripDetailPage,
-    TabsPage
+    TabsPage,
+    PaymentPage
   ],
   providers: [
     StatusBar,
