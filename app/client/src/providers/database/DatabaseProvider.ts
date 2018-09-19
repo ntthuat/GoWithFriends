@@ -55,13 +55,19 @@ export class DatabaseProvider {
 
   truncateUsers() {
     return new Promise((resolve, reject) => {
-      this.db.executeSql("DELETE IF EXISTS FROM friend", []).then((data) => {
+      this.db.executeSql("DELETE FROM friend", []).then((data) => {
         let users = [];
         resolve(users);
       }, (error) => {
         reject(error);
       })
     });
+  }
+
+  resetDatabaseForVufc() {
+    this.truncateUsers();
+    this.createUser('LLL', '093 917 49 72');
+    this.createUser('Nhung', '?');
   }
 
 }

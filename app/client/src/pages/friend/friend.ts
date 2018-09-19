@@ -3,6 +3,7 @@ import {NavController, ModalController} from 'ionic-angular';
 import {FriendRestService} from '../../providers/rest/FriendRestService';
 import {FriendDetailPage} from "./friendDetail/friendDetail";
 import {FriendModel} from "../../providers/model/FriendModel";
+import {DatabaseProvider} from "../../providers/database/DatabaseProvider";
 
 @Component({
   selector: 'page-friend',
@@ -12,8 +13,8 @@ export class FriendPage {
 
   friendList: any;
 
-  constructor(public navCtrl: NavController, public friendService: FriendRestService, public modalCtrl: ModalController, public friendModel: FriendModel) {
-    this.getFriendList();
+  constructor(public navCtrl: NavController, public friendService: FriendRestService, public modalCtrl: ModalController, public friendModel: FriendModel, public database: DatabaseProvider) {
+    this.getFriendListFromSQLite();
   }
 
   getFriendList() {
@@ -22,6 +23,14 @@ export class FriendPage {
         this.friendList = data;
         console.log(this.friendList);
       });
+  }
+
+  getFriendListFromSQLite(){
+    this.database.getUsers().then((data: any) => {
+      this.friendList = data;
+    }, (error) => {
+      console.log(error);
+    })
   }
 
   navigateFriendDetailPage(friendModel) {

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {AlertController, NavController} from 'ionic-angular';
 import {DatabaseProvider} from "../../providers/database/DatabaseProvider";
 import {Platform} from 'ionic-angular';
 
@@ -13,7 +13,7 @@ export class HomePage {
   public todos = [];
   public text: any;
 
-  constructor(public navCtrl: NavController, public database: DatabaseProvider, protected platform: Platform) {
+  constructor(public navCtrl: NavController, public database: DatabaseProvider, protected platform: Platform, public alertCtrl: AlertController) {
   }
 
   createUser() {
@@ -28,9 +28,6 @@ export class HomePage {
 
   getUsers() {
     this.database.getUsers().then((data: any) => {
-      console.log(data);
-      alert(data);
-      alert(data[0]["name"]);
       this.userList = data;
     }, (error) => {
       console.log(error);
@@ -38,10 +35,31 @@ export class HomePage {
   }
 
   truncateUsers() {
-    this.database.truncateUsers().then((data: any) => {
-    }, (error) => {
-      console.log(error);
-    })
+    this.presentConfirm();
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm Reset Database',
+      message: 'Are you sure reset all database?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            console.log('Confirm clicked');
+            this.database.resetDatabaseForVufc();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }
