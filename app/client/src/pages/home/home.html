@@ -43,7 +43,8 @@
   </ion-list>-->
   <button ion-button block color="secondary" (click)="createUser()">Create User</button>
   <button ion-button block color="secondary" (click)="getUsers()">Load User</button>
-  Items:
+  <button ion-button block color="secondary" (click)="truncateUsers()">Reset User</button>
+  Items1:
   <ion-list>
     <ion-item-sliding *ngFor="let item of userList">
       <ion-item>

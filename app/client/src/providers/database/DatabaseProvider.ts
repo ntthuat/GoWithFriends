@@ -12,9 +12,9 @@ export class DatabaseProvider {
 
     if (!this.isOpen) {
       this.storage = new SQLite();
-      this.storage.create({name: "data.db", location: "default"}).then((db: SQLiteObject) => {
+      this.storage.create({name: "GoWithFriendsDB", location: "default"}).then((db: SQLiteObject) => {
         this.db = db;
-        db.executeSql("CREATE TABLE IF NOT EXISTS user (userId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT)", []);
+        db.executeSql("CREATE TABLE IF NOT EXISTS friend (friendId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT)", []);
         this.isOpen = true;
       }).catch((error) => {
         console.log(error);
@@ -24,7 +24,7 @@ export class DatabaseProvider {
 
   createUser(name: string, phone: string) {
     return new Promise((resolve, reject) => {
-      let sql = "INSERT INTO user (name, phone) VALUES (?, ?)";
+      let sql = "INSERT INTO friend (name, phone) VALUES (?, ?)";
       this.db.executeSql(sql, [name, phone]).then((data) => {
         resolve(data);
       }, (error) => {
@@ -35,7 +35,7 @@ export class DatabaseProvider {
 
   getUsers() {
     return new Promise((resolve, reject) => {
-      this.db.executeSql("SELECT * FROM user", []).then((data) => {
+      this.db.executeSql("SELECT * FROM friend", []).then((data) => {
         let users = [];
         if (data.rows.length > 0) {
           for (var i = 0; i < data.rows.length; i++) {
@@ -46,6 +46,17 @@ export class DatabaseProvider {
             });
           }
         }
+        resolve(users);
+      }, (error) => {
+        reject(error);
+      })
+    });
+  }
+
+  truncateUsers() {
+    return new Promise((resolve, reject) => {
+      this.db.executeSql("DELETE IF EXISTS FROM friend", []).then((data) => {
+        let users = [];
         resolve(users);
       }, (error) => {
         reject(error);

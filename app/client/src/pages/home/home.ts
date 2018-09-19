@@ -11,14 +11,14 @@ export class HomePage {
 
   private userList: any;
   public todos = [];
-  public text : any;
+  public text: any;
 
   constructor(public navCtrl: NavController, public database: DatabaseProvider, protected platform: Platform) {
   }
 
   createUser() {
     //this.database.crearUser(this.todo.value.name, this.todo.value.phone).then((data) => {
-    this.database.createUser(null, null).then((data) => {
+    this.database.createUser('thuat', '123').then((data) => {
       console.log(data);
       this.userList();
     }, (error) => {
@@ -30,7 +30,15 @@ export class HomePage {
     this.database.getUsers().then((data: any) => {
       console.log(data);
       alert(data);
+      alert(data[0]["name"]);
       this.userList = data;
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
+  truncateUsers() {
+    this.database.truncateUsers().then((data: any) => {
     }, (error) => {
       console.log(error);
     })
