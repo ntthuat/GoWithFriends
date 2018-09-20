@@ -10,6 +10,7 @@ import {Platform} from 'ionic-angular';
 export class HomePage {
 
   private userList: any;
+  private paymentList: any;
   public todos = [];
   public text: any;
 
@@ -29,6 +30,14 @@ export class HomePage {
   getUsers() {
     this.database.getUsers().then((data: any) => {
       this.userList = data;
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
+  getPayments() {
+    this.database.getPayments().then((data: any) => {
+      this.paymentList = data;
     }, (error) => {
       console.log(error);
     })

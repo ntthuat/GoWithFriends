@@ -14,7 +14,7 @@ export class FriendPage {
   friendList: any;
 
   constructor(public navCtrl: NavController, public friendService: FriendRestService, public modalCtrl: ModalController, public friendModel: FriendModel, public database: DatabaseProvider) {
-    this.getFriendListFromSQLite();
+    this.getFriendList();
   }
 
   getFriendList() {

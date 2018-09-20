@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ViewController} from 'ionic-angular';
 import {TripRestService} from "../../../../providers/rest/TripRestService";
+import {DatabaseProvider} from "../../../../providers/database/DatabaseProvider";
 
 @Component({
   selector: 'page-paymentList',
@@ -8,7 +9,18 @@ import {TripRestService} from "../../../../providers/rest/TripRestService";
 })
 export class PaymentListPage {
 
-  constructor(private viewCtrl: ViewController, public tripService: TripRestService) {
+  private paymentList: any;
+
+  constructor(private viewCtrl: ViewController, public tripService: TripRestService, public database: DatabaseProvider) {
+    this.getPayments();
+  }
+
+  getPayments() {
+    this.database.getPayments().then((data: any) => {
+      this.paymentList = data;
+    }, (error) => {
+      console.log(error);
+    })
   }
 
   closeModal() {
