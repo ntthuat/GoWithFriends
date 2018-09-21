@@ -12,8 +12,7 @@ import {DatabaseProvider} from "../../../providers/database/DatabaseProvider";
 export class TripDetailPage {
 
   trip: any;
-  totalMoney: any = 0;
-  friendList: any;
+  totalSpentMoney: any = 0;
   userList: any;
 
   constructor(public database: DatabaseProvider, private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController,
@@ -38,14 +37,13 @@ export class TripDetailPage {
   }
 
   getUsers() {
-    alert(1);
-    this.database.getUsers().then((data: number) => {
+    this.database.getUsers().then((data: any) => {
       this.userList = data;
       let total: number = 0;
-      for (let aaa of this.userList) {
-        total = total + aaa["money"];
+      for (let user of this.userList) {
+        total = total + user["money"];
       }
-      this.totalMoney = total;
+      this.totalSpentMoney = total;
     }, (error) => {
       console.log(error);
     });

@@ -9,20 +9,37 @@
   </ion-navbar>
 </ion-header>
 
-        <ion-content padding>
-          <button ion-button (click)="navigatePayment()">New Payment</button>
-          <button ion-button (click)="navigatePaymentList()">Payment List</button>
-          {{totalMoney}}
-          <ion-list inset>
-            <ion-item *ngFor="let t of trip">
-              <h2><b>Trip Name</b>: {{t.name}}</h2>
-              <h2><b>Received Money</b>: {{t.receivedMoney|currency}}</h2>
-              <h2><b>Spent Money</b>: {{totalMoney|currency}}</h2>
-              <ion-list><b>{{t.capacity}} Friends</b>:
-        <ion-item *ngFor="let member of t.member">
+<!--<ion-content padding>
+  <button ion-button (click)="navigatePayment()">New Payment</button>
+  <button ion-button (click)="navigatePaymentList()">Payment List</button>
+  <ion-list inset>
+    <ion-item *ngFor="let t of trip">
+      <h2><b>Trip Name</b>: &lt;!&ndash;{{t.name}}&ndash;&gt;</h2>
+      &lt;!&ndash;<h2><b>Received Money</b>: {{t.receivedMoney|currency}}</h2>&ndash;&gt;
+      <h2><b>Spent Money</b>: {{totalMoney|currency}}</h2>
+      <ion-list><b>&lt;!&ndash;{{t.capacity}}&ndash;&gt;26 Friends</b>:
+        <ion-item *ngFor="let member of userList">
           <p><b>Friend Name</b>: {{member.name}}</p>
-          <p><b>Received</b>: {{member.receivedMoney|currency}}</p>
-          <p><b>Spent</b>: {{member.spentMoney|currency}}</p>
+          &lt;!&ndash; <p><b>Received</b>: {{member.receivedMoney|currency}}</p>&ndash;&gt;
+          &lt;!&ndash;<p><b>Spent</b>: {{member.spentMoney|currency}}</p>&ndash;&gt;
+          <p><b>Spent</b>: {{member.money|currency}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+</ion-content>-->
+
+<ion-content padding>
+  <button ion-button (click)="navigatePayment()">New Payment</button>
+  <button ion-button (click)="navigatePaymentList()">Payment List</button>
+  <ion-list inset>
+    <ion-item *ngFor="let t of trip">
+      <h2><b>Trip Name</b>: Quy Nhơn - Biển Tình Vẫy Gọi</h2>
+      <h2><b>Spent Money</b>: {{totalSpentMoney|currency}}</h2>
+      <ion-list><b>26 Friends</b>:
+        <ion-item *ngFor="let member of userList">
+          <p><b>Friend Name</b>: {{member.name}}</p>
+          <p><b>Spent</b>: {{member.money|currency}}</p>
         </ion-item>
       </ion-list>
     </ion-item>

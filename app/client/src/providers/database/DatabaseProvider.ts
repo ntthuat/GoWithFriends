@@ -14,8 +14,8 @@ export class DatabaseProvider {
       this.storage = new SQLite();
       this.storage.create({name: "GoWithFriendsDB", location: "default"}).then((db: SQLiteObject) => {
         this.db = db;
-/*        db.executeSql("DROP TABLE IF EXISTS friend", []);
-        db.executeSql("DROP TABLE IF EXISTS payment", []);*/
+        /*        db.executeSql("DROP TABLE IF EXISTS friend", []);
+                db.executeSql("DROP TABLE IF EXISTS payment", []);*/
         db.executeSql("CREATE TABLE IF NOT EXISTS friend (friendId INTEGER PRIMARY KEY, name TEXT, phone TEXT, money INTEGER)", []);
         db.executeSql("CREATE TABLE IF NOT EXISTS payment (paymentId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, payer TEXT, money INTEGER)", []);
         this.isOpen = true;
@@ -36,7 +36,18 @@ export class DatabaseProvider {
     });
   }
 
-  createFullUser(friendId: number, name: string, phone: string, money: number ) {
+  updateUser(friendId: number, money: number) {
+    return new Promise((resolve, reject) => {
+      let sql = "UPDATE friend SET money = ? WHERE friendId = ?";
+      this.db.executeSql(sql, [money, friendId]).then((data) => {
+        resolve(data);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
+  createFullUser(friendId: number, name: string, phone: string, money: number) {
     return new Promise((resolve, reject) => {
       let sql = "INSERT INTO friend (friendId, name, phone, money) VALUES (?, ?, ?, ?)";
       this.db.executeSql(sql, [friendId, name, phone, money]).then((data) => {
@@ -46,10 +57,6 @@ export class DatabaseProvider {
         reject(error);
       });
     });
-  }
-
-  updateUser(userId: string, money: number) {
-
   }
 
   createPayment(name: string, payer: string, money: number) {
@@ -122,24 +129,6 @@ export class DatabaseProvider {
   truncateFriend() {
     return this.truncateTable('friend');
   }
-
-  /*getTotalMoney(){
-    return new Promise((resolve, reject) => {
-      this.db.executeSql("SELECT count(*) totalM FROM friend", []).then((data) => {
-        let totalMoney = [];
-        if (data.rows.length > 0) {
-          for (var i = 0; i < data.rows.length; i++) {
-            totalMoney.push({
-              totalM: data.rows.item(i).totalM
-            });
-          }
-        }
-        resolve(totalMoney);
-      }, (error) => {
-        reject(error);
-      })
-    });
-  }*/
 
   resetDatabaseForVufc() {
     this.truncateFriend();
