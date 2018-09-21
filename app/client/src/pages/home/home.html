@@ -9,20 +9,20 @@
   <button ion-button block color="secondary" (click)="createUser()">Create User</button>
   <button ion-button block color="secondary" (click)="getUsers(); getPayments()">Load User</button>
   <button ion-button block color="secondary" (click)="truncateUsers()">Reset User</button>
-  <ion-list>
+  <!--<ion-list>
     Friends in DB:
     <ion-item-sliding *ngFor="let friend of userList">
       <ion-item>
-        <h2>{{friend.friendId}} - {{friend.name}} - {{friend.phone}}</h2>
+        <h2>{{friend.friendId}} - {{friend.name}} - {{friend.phone}} - {{friend.money}}</h2>
       </ion-item>
-      <!--<ion-item-options side="right">
+      &lt;!&ndash;<ion-item-options side="right">
         <button ion-button color="danger">
           <ion-icon name="delete"></ion-icon>
           Eliminar
         </button>
-      </ion-item-options>-->
+      </ion-item-options>&ndash;&gt;
     </ion-item-sliding>
-  </ion-list>
+  </ion-list>-->
   <ion-list>
     Payments in DB:
     <ion-item-sliding *ngFor="let payment of paymentList">

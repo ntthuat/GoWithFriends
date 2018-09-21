@@ -9,15 +9,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button ion-button (click)="navigatePayment()">New Payment</button>
-  <button ion-button (click)="navigatePaymentList()">Payment List</button>
-  <ion-list inset>
-    <ion-item *ngFor="let t of trip">
-      <h2><b>Trip Name</b>: {{t.name}}</h2>
-      <h2><b>Received Money</b>: {{t.receivedMoney|currency}}</h2>
-      <h2><b>Spent Money</b>: {{t.spentMoney|currency}}</h2>
-      <ion-list><b>{{t.capacity}} Friends</b>:
+        <ion-content padding>
+          <button ion-button (click)="navigatePayment()">New Payment</button>
+          <button ion-button (click)="navigatePaymentList()">Payment List</button>
+          {{totalMoney}}
+          <ion-list inset>
+            <ion-item *ngFor="let t of trip">
+              <h2><b>Trip Name</b>: {{t.name}}</h2>
+              <h2><b>Received Money</b>: {{t.receivedMoney|currency}}</h2>
+              <h2><b>Spent Money</b>: {{totalMoney|currency}}</h2>
+              <ion-list><b>{{t.capacity}} Friends</b>:
         <ion-item *ngFor="let member of t.member">
           <p><b>Friend Name</b>: {{member.name}}</p>
           <p><b>Received</b>: {{member.receivedMoney|currency}}</p>

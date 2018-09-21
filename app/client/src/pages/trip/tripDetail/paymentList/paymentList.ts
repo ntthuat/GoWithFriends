@@ -20,7 +20,7 @@ export class PaymentListPage {
       this.paymentList = data;
     }, (error) => {
       console.log(error);
-    })
+    });
   }
 
   closeModal() {

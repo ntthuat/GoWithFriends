@@ -15,10 +15,6 @@ export class HomePage {
   public text: any;
 
   constructor(public navCtrl: NavController, public database: DatabaseProvider, protected platform: Platform, public alertCtrl: AlertController) {
-    /*    this.todos = this.formBuilder.group({
-          title: ['', Validators.required],
-          description: [''],
-        });*/
   }
 
   createUser() {
