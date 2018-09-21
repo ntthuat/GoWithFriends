@@ -43,7 +43,6 @@ export class PaymentPage {
       }
     }
 
-    alert("123");
     for (let user of this.payments) {
       if (user["isChecked"]) {
         let oldMoney: number = this.userList[user["friendId"]-1]["money"];
@@ -51,7 +50,6 @@ export class PaymentPage {
         this.database.updateUser(user["friendId"], newMoney);
       }
     }
-    alert("456");
     this.presentToast();
     this.inputMoney = null; //clear form
     this.inputPayer = null; //clear form
@@ -89,7 +87,7 @@ export class PaymentPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'New peyment was added successfully',
+      message: 'New payment was added successfully',
       duration: 3000,
       position: 'top'
     });

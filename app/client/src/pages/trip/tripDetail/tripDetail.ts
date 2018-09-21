@@ -21,6 +21,11 @@ export class TripDetailPage {
     this.getUsers();
   }
 
+  refresh() {
+    this.getTripDetail();
+    this.getUsers();
+  }
+
   closeModal() {
     this.viewCtrl.dismiss();
   }

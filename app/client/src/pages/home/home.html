@@ -6,9 +6,10 @@
 
 <ion-content padding>
   <h2>Welcome to GoWithFriends!</h2>
-  <button ion-button block color="secondary" (click)="createUser()">Create User</button>
-  <button ion-button block color="secondary" (click)="getUsers(); getPayments()">Load User</button>
-  <button ion-button block color="secondary" (click)="truncateUsers()">Reset User</button>
+  <!--<button ion-button block color="secondary" (click)="createUser()">Create User</button>-->
+  Note: This is alpha version, you need to press "Reset Database" button for first time to use.
+  <button ion-button block color="secondary" (click)="getUsers(); getPayments()">Load Payments</button>
+  <button ion-button block color="danger" (click)="truncateUsers()">Reset Database</button>
   <!--<ion-list>
     Friends in DB:
     <ion-item-sliding *ngFor="let friend of userList">
@@ -24,7 +25,6 @@
     </ion-item-sliding>
   </ion-list>-->
   <ion-list>
-    Payments in DB:
     <ion-item-sliding *ngFor="let payment of paymentList">
       <ion-item>
         <h2>{{payment.name}} - {{payment.money|currency}}</h2>
