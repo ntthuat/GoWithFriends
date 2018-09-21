@@ -15,6 +15,10 @@ export class HomePage {
   public text: any;
 
   constructor(public navCtrl: NavController, public database: DatabaseProvider, protected platform: Platform, public alertCtrl: AlertController) {
+    /*    this.todos = this.formBuilder.group({
+          title: ['', Validators.required],
+          description: [''],
+        });*/
   }
 
   createUser() {
@@ -24,7 +28,11 @@ export class HomePage {
       this.userList();
     }, (error) => {
       console.log(error);
-    })
+    });
+    this.database.createPayment('new activity', 'thuat', 26).then((data) => {
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   getUsers() {
@@ -70,6 +78,14 @@ export class HomePage {
       ]
     });
     alert.present();
+  }
+
+  logForm() {
+    console.log(this.todos);
+    this.database.createPayment(this.todos["name"], this.todos["payer"], this.todos["money"]).then((data) => {
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }

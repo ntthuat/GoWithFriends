@@ -3,6 +3,7 @@ import {NavController, NavParams, ModalController, ViewController} from 'ionic-a
 import {Storage} from '@ionic/storage';
 import {ToastController} from 'ionic-angular';
 import {TripRestService} from "../../../../providers/rest/TripRestService";
+import {DatabaseProvider} from "../../../../providers/database/DatabaseProvider";
 
 @Component({
   selector: 'page-payment',
@@ -16,7 +17,7 @@ export class PaymentPage {
   key: string = 'data';
   payments: any;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController,
+  constructor(public database: DatabaseProvider, private navCtrl: NavController, private navParams: NavParams, private modalCtrl: ModalController,
               private viewCtrl: ViewController, private storage: Storage, private toastCtrl: ToastController, public tripService: TripRestService) {
     this.payments = this.getPayment();
   }
@@ -26,8 +27,14 @@ export class PaymentPage {
   }
 
   payMoney() {
-    this.storage.set(this.key, this.inputMoney);
-    //TODO
+    //this.storage.set(this.key, this.inputMoney);
+    this.database.createPayment(this.inputActivity, this.inputPayer, this.inputMoney).then((data) => {
+    }, (error) => {
+      console.log(error);
+    });
+
+
+
     this.presentToast();
     this.inputMoney = null; //clear form
     this.inputPayer = null; //clear form
