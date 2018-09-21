@@ -36,7 +36,7 @@ export class DatabaseProvider {
 
   createPayment(name: string, payer: string, money: number) {
     return new Promise((resolve, reject) => {
-      let sql = "INSERT INTO payment (name, payer, money) VALUES (?, ?, 1)";
+      let sql = "INSERT INTO payment (name, payer, money) VALUES (?, ?, ?)";
       this.db.executeSql(sql, [name, payer, money]).then((data) => {
         resolve(data);
       }, (error) => {
@@ -51,7 +51,7 @@ export class DatabaseProvider {
 
   truncateTable(tableName: string) {
     return new Promise((resolve, reject) => {
-      this.db.executeSql("DELETE FROM " + tableName).then((data) => {
+      this.db.executeSql("DELETE FROM " + tableName, []).then((data) => {
         resolve();
       }, (error) => {
         reject(error);
@@ -81,7 +81,7 @@ export class DatabaseProvider {
 
   getPayments() {
     return new Promise((resolve, reject) => {
-      this.db.executeSql("SELECT * FROM payment").then((data) => {
+      this.db.executeSql("SELECT * FROM payment", []).then((data) => {
         let payments = [];
         if (data.rows.length > 0) {
           for (var i = 0; i < data.rows.length; i++) {

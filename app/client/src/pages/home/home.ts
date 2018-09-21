@@ -39,6 +39,7 @@ export class HomePage {
     this.database.getPayments().then((data: any) => {
       this.paymentList = data;
     }, (error) => {
+      alert(JSON.stringify(error));
       console.log(error);
     })
   }

@@ -42,7 +42,7 @@
     </ion-item-sliding>
   </ion-list>-->
   <button ion-button block color="secondary" (click)="createUser()">Create User</button>
-  <button ion-button block color="secondary" (click)="getPayments()">Load User</button>
+  <button ion-button block color="secondary" (click)="getUsers(); getPayments()">Load User</button>
   <button ion-button block color="secondary" (click)="truncateUsers()">Reset User</button>
   <ion-list>
     Friends in DB:
@@ -62,7 +62,7 @@
     Payments in DB:
     <ion-item-sliding *ngFor="let payment of paymentList">
       <ion-item>
-        <h2>{{payment.name}}</h2>
+        <h2>{{payment.name}} - {{payment.money|currency}}</h2>
       </ion-item>
     </ion-item-sliding>
   </ion-list>
